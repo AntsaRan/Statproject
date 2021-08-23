@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBF70BEA-30A7-4E29-A0DE-987866DBF44F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Statfile</RootNamespace>
+    <AssemblyName>Statfile</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormControls\Session.cs" />
+    <Compile Include="Model\BusLine.cs" />
+    <Compile Include="Model\Frequency.cs" />
+    <Compile Include="Utilitaires\BusStationXMLgen.cs" />
+    <Compile Include="Utilitaires\EntranceXMLgen.cs" />
+    <Compile Include="Utilitaires\FrequencyXMLgen.cs" />
+    <Compile Include="Utilitaires\ParametersXMLgen.cs" />
+    <Compile Include="Utilitaires\PopulationXMLgen.cs" />
+    <Compile Include="Utilitaires\SchoolXMLgen.cs" />
+    <Compile Include="Utilitaires\StreetsXMLgen.cs" />
+    <Compile Include="Utilitaires\WorkXMLgen.cs" />
+    <Compile Include="Utilitaires\XMLgen.cs" />
+    <Compile Include="Utilitaires\GeneralXMLgen.cs" />
+    <Compile Include="Model\BusStation.cs" />
+    <Compile Include="Model\Closing.cs" />
+    <Compile Include="Model\Entrance.cs" />
+    <Compile Include="Model\General.cs" />
+    <Compile Include="Model\Opening.cs" />
+    <Compile Include="Model\Parameters.cs" />
+    <Compile Include="Model\PopulationBracket.cs" />
+    <Compile Include="Model\School.cs" />
+    <Compile Include="Model\Street.cs" />
+    <Compile Include="View\BusStationsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BusStationsForm.Designer.cs">
+      <DependentUpon>BusStationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\cityGatesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\cityGatesForm.Designer.cs">
+      <DependentUpon>cityGatesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\generalform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\generalform.Designer.cs">
+      <DependentUpon>generalform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\parametersForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\parametersForm.Designer.cs">
+      <DependentUpon>parametersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Finalisation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Finalisation.Designer.cs">
+      <DependentUpon>Finalisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\populationform.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\populationform.Designer.cs">
+      <DependentUpon>populationform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\schoolsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\schoolsForm.Designer.cs">
+      <DependentUpon>schoolsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\streetsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\streetsForm.Designer.cs">
+      <DependentUpon>streetsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BusLineForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BusLineForm.Designer.cs">
+      <DependentUpon>BusLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\workHoursForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\workHoursForm.Designer.cs">
+      <DependentUpon>workHoursForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\BusLineForm.resx">
+      <DependentUpon>BusLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BusStationsForm.resx">
+      <DependentUpon>BusStationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\cityGatesForm.resx">
+      <DependentUpon>cityGatesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Finalisation.resx">
+      <DependentUpon>Finalisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\generalform.resx">
+      <DependentUpon>generalform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\parametersForm.resx">
+      <DependentUpon>parametersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\populationform.resx">
+      <DependentUpon>populationform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\schoolsForm.resx">
+      <DependentUpon>schoolsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\streetsForm.resx">
+      <DependentUpon>streetsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\workHoursForm.resx">
+      <DependentUpon>workHoursForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Statfile.Model.BusLine.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.BusStation.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.Closing.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.Entrance.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.Opening.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.PopulationBracket.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.School.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.Street.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
