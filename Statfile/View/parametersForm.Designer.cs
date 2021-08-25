@@ -78,7 +78,7 @@ namespace Statfile.View
             this.departureVariation.Name = "departureVariation";
             this.departureVariation.Size = new System.Drawing.Size(201, 23);
             this.departureVariation.TabIndex = 50;
-            this.departureVariation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.departureVariation_KeyPress);
+            this.departureVariation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.departureVariation_KeyPress_1);
             // 
             // label12
             // 
@@ -97,7 +97,7 @@ namespace Statfile.View
             this.uniformRandomTraffic.Name = "uniformRandomTraffic";
             this.uniformRandomTraffic.Size = new System.Drawing.Size(201, 23);
             this.uniformRandomTraffic.TabIndex = 48;
-            this.uniformRandomTraffic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.uniformRandomTraffic_KeyPress);
+            this.uniformRandomTraffic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.uniformRandomTraffic_KeyPress_1);
             // 
             // label13
             // 
@@ -116,7 +116,7 @@ namespace Statfile.View
             this.freeTimeActivityRate.Name = "freeTimeActivityRate";
             this.freeTimeActivityRate.Size = new System.Drawing.Size(201, 23);
             this.freeTimeActivityRate.TabIndex = 46;
-            this.freeTimeActivityRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.freeTimeActivityRate_KeyPress);
+            this.freeTimeActivityRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.freeTimeActivityRate_KeyPress_1);
             // 
             // label14
             // 
@@ -135,7 +135,7 @@ namespace Statfile.View
             this.meanTimePerKmInCity.Name = "meanTimePerKmInCity";
             this.meanTimePerKmInCity.Size = new System.Drawing.Size(201, 23);
             this.meanTimePerKmInCity.TabIndex = 44;
-            this.meanTimePerKmInCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.meanTimePerKmInCity_KeyPress);
+            this.meanTimePerKmInCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.meanTimePerKmInCity_KeyPress_1);
             // 
             // label15
             // 
@@ -164,7 +164,7 @@ namespace Statfile.View
             this.carPreference.Name = "carPreference";
             this.carPreference.Size = new System.Drawing.Size(201, 23);
             this.carPreference.TabIndex = 41;
-            this.carPreference.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.carPreference_KeyPress);
+            this.carPreference.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.carPreference_KeyPress_1);
             // 
             // label1
             // 

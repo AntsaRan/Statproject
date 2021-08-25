@@ -130,7 +130,7 @@ namespace Statfile.View
             this.peopleNbr.Name = "peopleNbr";
             this.peopleNbr.Size = new System.Drawing.Size(136, 24);
             this.peopleNbr.TabIndex = 103;
-            this.peopleNbr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.peopleNbr_KeyPress);
+            this.peopleNbr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.peopleNbr_KeyPress_1);
             // 
             // endAge
             // 
@@ -139,7 +139,7 @@ namespace Statfile.View
             this.endAge.Name = "endAge";
             this.endAge.Size = new System.Drawing.Size(134, 24);
             this.endAge.TabIndex = 102;
-            this.endAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.endAge_KeyPress);
+            this.endAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.endAge_KeyPress_1);
             // 
             // beginAge
             // 
@@ -148,7 +148,7 @@ namespace Statfile.View
             this.beginAge.Name = "beginAge";
             this.beginAge.Size = new System.Drawing.Size(136, 24);
             this.beginAge.TabIndex = 101;
-            this.beginAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.beginAge_KeyPress);
+            this.beginAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.beginAge_KeyPress_1);
             // 
             // label4
             // 

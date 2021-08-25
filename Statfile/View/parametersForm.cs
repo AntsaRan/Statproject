@@ -46,10 +46,10 @@ namespace Statfile.View
                 Parameters = new Parameters();
                 Parameters.CarPreference = double.Parse(carPreference.Text);
                 Parameters.MeanTimePerKmInCity = int.Parse(meanTimePerKmInCity.Text);
-                Parameters.FreeTimeActivityRate = double.Parse(freeTimeActivityRate.Text,CultureInfo.InvariantCulture);
+                Parameters.FreeTimeActivityRate = double.Parse(freeTimeActivityRate.Text, CultureInfo.InvariantCulture);
                 Parameters.UniformRandomTraffic = double.Parse(uniformRandomTraffic.Text, CultureInfo.InvariantCulture);
                 Parameters.DepartureVariation = double.Parse(departureVariation.Text);
-               
+
                 ValidationContext context = new ValidationContext(Parameters, null, null);
                 IList<ValidationResult> errors = new List<ValidationResult>();
                 if (!Validator.TryValidateObject(Parameters, context, errors, true))
@@ -107,6 +107,47 @@ namespace Statfile.View
         }
 
         private void freeTimeActivityRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void carPreference_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void meanTimePerKmInCity_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void freeTimeActivityRate_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void uniformRandomTraffic_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void departureVariation_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {

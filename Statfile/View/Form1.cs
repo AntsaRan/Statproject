@@ -14,13 +14,14 @@ namespace Statfile
 {
     public partial class Form1 : Form
     {
-      
+     
         private string path;
+
         public Form1()
         {
             InitializeComponent();
             disablebuttons();
-            busStationsForm1.BringToFront();
+            generalform1.BringToFront();
 
             // Ecoute les évènements du formulaire " général" click bouton enablenext
             generalform1.enablenext += new EventHandler(Generalform_enablenext);
@@ -55,10 +56,9 @@ namespace Statfile
             // Ecoute les évènements du formulaire " busstation" suivant
             busStationsForm1.suivantform += new EventHandler(BusStation_suivant);
             // Ecoute les évènements du formulaire " busstation" precedent
-            busLinesForm1.precedent += new EventHandler(BusLine_percedent);
+            busLineForm2.precedent += new EventHandler(BusLine_percedent);
             // Ecoute les évènements du formulaire " busstation" suivant
-            busLinesForm1.suivantform += new EventHandler(BusLine_suivant);
-
+            busLineForm2.suivantform += new EventHandler(BusLine_suivant);
         }
         private void BusLine_percedent(object sender, EventArgs e)
         {
@@ -67,9 +67,9 @@ namespace Statfile
         }
         private void BusLine_suivant(object sender, EventArgs e)
         {
-            busstationbtn.Enabled = true;
-            // finalisation1.BringToFront();
-            busStationsForm1.BringToFront();
+            finalbtn.Enabled = true;
+            finalisation1.BringToFront();
+            //busStationsForm1.BringToFront();
         }
         private void School_percedent(object sender, EventArgs e)
         {
@@ -90,8 +90,9 @@ namespace Statfile
         private void BusStation_suivant(object sender, EventArgs e)
         {
             busLinesbtn.Enabled = true;
-            //busLinesForm1.SetList(busStationsForm1.BusStations);
-            busLinesForm1.BringToFront();
+            busLineForm2.setstations(busStationsForm1.BusStations);
+            busLineForm2.BringToFront();
+            //cityGatesForm1.BringToFront();
         }
         private void City_percedent(object sender, EventArgs e)
         {
@@ -149,19 +150,7 @@ namespace Statfile
             streetsForm1.BringToFront();
         }
 
-        
-
-        private void neutralbtn()
-        {
-            foreach (Button btn in Controls.OfType<Button>())
-            {
-                if (btn.BackColor == Color.DarkGray)
-                {
-                    btn.BackColor = Color.LightGray;
-                }
-            }
-        }
-
+     
         public void genererGeneral()
         {
         }
@@ -179,7 +168,8 @@ namespace Statfile
             csv.Streets = streetsForm1.Streets;
             csv.Entrances = cityGatesForm1.Entrances;
             csv.Schools = schoolsForm1.Schools;
-          //  csv.Busstation = busStationsForm1.BusStations;
+            csv.Busstation = busStationsForm1.BusStations;
+            csv.Buslines = busLineForm2.BusLines;
             csv.writeXML(path);
         }
 
@@ -211,8 +201,10 @@ namespace Statfile
             schoolbtn.Enabled = false;
             busstationbtn.Enabled = false;
             busLinesbtn.Enabled = false;
+
         }
 
+    
 
         private void populationform1_Load(object sender, EventArgs e)
         {
@@ -228,14 +220,18 @@ namespace Statfile
         {
 
         }
-
-        private void workbtn_Click(object sender, EventArgs e)
-        {
-            neutralbtn();
-            workbtn.BackColor = Color.DarkGray;
-            workHours1.BringToFront();
-        }
         // BOUTONS
+        private void neutralbtn()
+        {
+            foreach (Button btn in Controls.OfType<Button>())
+            {
+                if (btn.BackColor == Color.DarkGray)
+                {
+                    btn.BackColor = Color.LightGray;
+                }
+            }
+        }
+
         private void paramsbtn_Click(object sender, EventArgs e)
         {
             neutralbtn();
@@ -256,48 +252,53 @@ namespace Statfile
             populationform1.BringToFront();
         }
 
-        private void ruebtn_Click(object sender, EventArgs e)
+        private void workbtn_Click(object sender, EventArgs e)
+        {
+            neutralbtn();
+            workbtn.BackColor = Color.DarkGray;
+            workHours1.BringToFront();
+        }
+
+        private void ruebtn_Click_1(object sender, EventArgs e)
         {
             neutralbtn();
             ruebtn.BackColor = Color.DarkGray;
             streetsForm1.BringToFront();
         }
 
-        private void citygates_Click(object sender, EventArgs e)
+        private void citygates_Click_1(object sender, EventArgs e)
         {
             neutralbtn();
             citygates.BackColor = Color.DarkGray;
             cityGatesForm1.BringToFront();
         }
 
-        private void schoolbtn_Click(object sender, EventArgs e)
+        private void schoolbtn_Click_1(object sender, EventArgs e)
         {
             neutralbtn();
             schoolbtn.BackColor = Color.DarkGray;
             schoolsForm1.BringToFront();
         }
 
-        private void busstationbtn_Click(object sender, EventArgs e)
+        private void busstationbtn_Click_1(object sender, EventArgs e)
         {
             neutralbtn();
             busstationbtn.BackColor = Color.DarkGray;
             busStationsForm1.BringToFront();
         }
 
-        private void busLinesbtn_Click(object sender, EventArgs e)
+        private void busLinesbtn_Click_1(object sender, EventArgs e)
         {
             neutralbtn();
             busLinesbtn.BackColor = Color.DarkGray;
+            busLineForm2.BringToFront();
         }
 
-        private void busLinesForm1_Load(object sender, EventArgs e)
+        private void finalbtn_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            neutralbtn();
+            finalbtn.BackColor = Color.DarkGray;
+            finalisation1.BringToFront();
         }
     }
 }

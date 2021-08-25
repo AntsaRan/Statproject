@@ -19,21 +19,35 @@ namespace Statfile.View
         private List<BusLine> busLines;
         private List<BusStation> station;
         private List<BusStation> revstation;
-        private int busId;
-
+        private modifyBuslineStations form;
+        private AjoutFrequences freqform;
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public List<BusLine> BusLines { get => busLines; set => busLines = value; }
-        public int BusId { get => busId; set => busId = value; }
+        public List<BusStation> Station { get => station; set => station = value; }
+        public List<BusStation> Revstation { get => revstation; set => revstation = value; }
 
         public BusLineForm()
         {
             InitializeComponent();
-            busId = 1;
+            form = new modifyBuslineStations();
+            freqform = new AjoutFrequences();
+            form.modifierevent += new EventHandler(modifierElement);
+            freqform.validerF += new EventHandler(validerfrequences);
             busLines = new List<BusLine>();
         }
+
+        private void validerfrequences(object sender, EventArgs e) 
+        { 
+        
+            int index = freqform.Index;
+            BusLine bus = freqform.Bus;
+            busLineBindingSource.RemoveAt(index);
+            busLineBindingSource.Add(bus);
+        }
+
         private void BusLineForm_Load(object sender, EventArgs e)
         {
-            busLineBindingSource.DataSource = busLines;
+            busLineBindingSource.DataSource = BusLines;
         }
 
         public void setstations(List<BusStation> list)
@@ -49,8 +63,8 @@ namespace Statfile.View
         {
             if (String.IsNullOrEmpty(idbus.Text)
              || String.IsNullOrEmpty(maxTripDuration.Text)
-             || stationslist.CheckedItems.Count<0
-             || revstationlist.CheckedItems.Count<0)
+             || stationslist.CheckedItems.Count<=0
+             || revstationlist.CheckedItems.Count<=0)
             {
                 // ajouter control de valeurs 
                 // habitantserror.SetError(inhabitants, "doit être renseigné");
@@ -65,15 +79,17 @@ namespace Statfile.View
 
                     foreach (int p in stationslist.CheckedItems)
                     {
+                        Console.WriteLine(p + " p statoion");
                         BusStation b = new BusStation(p);
                         stations.Add(b);
                     }
                     foreach (int p in revstationlist.CheckedItems)
                     {
+                        Console.WriteLine(p + " p revstationlist");
                         BusStation b = new BusStation(p);
                         rev.Add(b);
                     }
-                    BusLine str = new BusLine(busId, int.Parse(maxTripDuration.Text), stations,rev);
+                    BusLine str = new BusLine(idbus.Text, int.Parse(maxTripDuration.Text), stations,rev);
                     ValidationContext context = new ValidationContext(str, null, null);
                     IList<ValidationResult> errors = new List<ValidationResult>();
                     if (!Validator.TryValidateObject(str, context, errors, true))
@@ -90,7 +106,6 @@ namespace Statfile.View
                     {
                         busLineBindingSource.Add(str);
                        // refreshList();
-                        busId += 1;
                     }
 
                 }
@@ -101,20 +116,14 @@ namespace Statfile.View
 
             }
         }
-        public void refreshList()
-        {
-            busLineBindingSource.DataSource = null ;
-            buslinesgrid.DataSource = busLines;
-        }
+
         private void precbusstation_Click(object sender, EventArgs e)
         {
+            precedent?.Invoke(sender, e);
 
         }
 
-        private void nextbusstation_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -139,7 +148,82 @@ namespace Statfile.View
                 }
             }else if (buslinesgrid.Columns[e.ColumnIndex].Name == "Modifier")
             {
+                BusLine bus = busLines[e.RowIndex];
+                form = new modifyBuslineStations();
+                form.init(bus, e.RowIndex);
+                form.Show();
+            }else if(buslinesgrid.Columns[e.ColumnIndex].Name == "addFreq")
+            {
+                BusLine bus = busLines[e.RowIndex];
+                if (bus.Stations.Count == 0)
+                {
+                    MessageBox.Show("Ajoutez d'abord les stations.","Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    freqform = new AjoutFrequences();
+                    freqform.init(bus, e.RowIndex);
+                    freqform.Show();
+                }
+        
+            }
+        }
+        public void modifierElement(object sender, EventArgs e)
+        {
+            int index = form.Index;
+            BusLine bus = form.Busline;
+            busLineBindingSource.RemoveAt(index);
+            busLineBindingSource.Add(bus);
+        }
 
+        private void posinfo_Click(object sender, EventArgs e)
+        {
+            string msg = "Identifiant du bus. Assurez vu qu'il est unique.";
+            MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void edgeinfo_Click(object sender, EventArgs e)
+        {
+            string msg = "Temps maximum nécessaire à un bus pour effectuer le trajet de bout en bout. (s)";
+            MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nextbusLines_Click(object sender, EventArgs e)
+        {
+            if (BusLines.Count > 0)
+            {
+                suivantform?.Invoke(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Vérifiez que vous avez bien ajouté des éléments", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void idbus_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void maxTripDuration_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Statfile.Model;
+﻿using Statfile.FormControls;
+using Statfile.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,24 +18,18 @@ namespace Statfile.View
 
         public EventHandler precedent;
         public EventHandler suivantform;
-        private int busstationId;
         private List<BusStation> busStations;
+        private int busstationId;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public List<BusStation> BusStations { get => busStations; set => busStations = value; }
         public int BusstationId { get => busstationId; set => busstationId = value; }
-       public void setBusStation(List<BusStation> list)
-        {
-            busStations = list;
-        }
-        public List<BusStation> getBusStation()
-        {
-            return busStations;
-        }
+
         public BusStationsForm()
         {
             InitializeComponent();
             BusstationId = 1;
-            Console.WriteLine("Init bustation form");
-            setBusStation(new List<BusStation>());
+            BusStations = new List<BusStation>();
         }
 
         private void streetDatagridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,7 +39,7 @@ namespace Statfile.View
                 if (MessageBox.Show("Voulez vous vraiment supprimer", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    getBusStation().RemoveAt(e.RowIndex);
+                    busStationBindingSource.RemoveCurrent();
 
                 }
             }
@@ -52,8 +47,7 @@ namespace Statfile.View
 
         private void BusStationsForm_Load(object sender, EventArgs e)
         {
-            busStationDatagridView.DataSource = getBusStation();
-
+            busStationBindingSource.DataSource = BusStations;
             busStationDatagridView.RowTemplate.Height = 25;
         }
 
@@ -103,7 +97,7 @@ namespace Statfile.View
                     }
                     else
                     {
-                        getBusStation().Add(str);
+                        busStationBindingSource.Add(str);
                         BusstationId += 1;
                     }
 
@@ -124,8 +118,9 @@ namespace Statfile.View
 
         private void nextbusstation_Click(object sender, EventArgs e)
         {
-            if (getBusStation().Count > 0)
+            if (BusStations.Count > 0)
             {
+                Session.Stations = busStations;
                 suivantform?.Invoke(sender, e);
             }
             else

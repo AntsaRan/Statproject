@@ -38,7 +38,7 @@ namespace Statfile.View
         private void ajoutclosing_Click(object sender, EventArgs e)
         {
 
-           
+
         }
 
         private void workHours_Load(object sender, EventArgs e)
@@ -215,6 +215,50 @@ namespace Statfile.View
         }
 
         private void proportionclosing_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            string msg = "Nombres de secondes écoulées à partir de minuit. Ex: 3600=01h00 du matin ;30 600 = 8.5 h soit 8h30 du matin.";
+            MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            string msg = "Proportion de lieux de travail ayant cette heure d'ouverture. Forme: 0.30 = 30% ( 100% représente le nombre total de lieux de travail";
+            MessageBox.Show(msg, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void houropening_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void proportionopening_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void hourclosing_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void proportionclosing_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {

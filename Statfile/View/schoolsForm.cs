@@ -29,9 +29,9 @@ namespace Statfile.View
 
         private void schoolsForm_Load(object sender, EventArgs e)
         {
-           
-                schoolBindingSource.DataSource = Schools;
-                schoolDatagridView.RowTemplate.Height = 25;
+
+            schoolBindingSource.DataSource = Schools;
+            schoolDatagridView.RowTemplate.Height = 25;
         }
 
         private void popDatagridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -57,10 +57,10 @@ namespace Statfile.View
                 || String.IsNullOrEmpty(Opening.Text)
                 || String.IsNullOrEmpty(Closing.Text))
             {
- 
+
                 MessageBox.Show("Tous les champs doivent être renseignés", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if( int.Parse(BeginAge.Text)> int.Parse(EndAge.Text))
+            else if (int.Parse(BeginAge.Text) > int.Parse(EndAge.Text))
             {
                 MessageBox.Show("L'âge de fin doit être inférieur à l'âge début", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -102,7 +102,7 @@ namespace Statfile.View
 
         }
 
-       
+
         private void edgeinfo_Click(object sender, EventArgs e)
         {
             string msg = "Vous pourrez trouver l'identifiant de la rue en ouvrant le fichier de network sur NetEdit. " +
@@ -214,6 +214,64 @@ namespace Statfile.View
         }
 
         private void pos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+       
+        }
+
+        private void pos_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void BeginAge_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void EndAge_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Capacity_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Opening_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Closing_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Closing_TextChanged(object sender, EventArgs e)
         {
 
         }

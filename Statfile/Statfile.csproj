@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormControls\Session.cs" />
     <Compile Include="Model\BusLine.cs" />
     <Compile Include="Model\Frequency.cs" />
     <Compile Include="Utilitaires\BusStationXMLgen.cs" />
@@ -77,11 +78,11 @@
     <Compile Include="Model\PopulationBracket.cs" />
     <Compile Include="Model\School.cs" />
     <Compile Include="Model\Street.cs" />
-    <Compile Include="View\BusLinesForm.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="View\AjoutFrequences.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BusLinesForm.Designer.cs">
-      <DependentUpon>BusLinesForm.cs</DependentUpon>
+    <Compile Include="View\AjoutFrequences.Designer.cs">
+      <DependentUpon>AjoutFrequences.cs</DependentUpon>
     </Compile>
     <Compile Include="View\BusStationsForm.cs">
       <SubType>UserControl</SubType>
@@ -103,6 +104,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\generalform.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,14 +146,23 @@
     <Compile Include="View\streetsForm.Designer.cs">
       <DependentUpon>streetsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\BusLineForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BusLineForm.Designer.cs">
+      <DependentUpon>BusLineForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\workHoursForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\workHoursForm.Designer.cs">
       <DependentUpon>workHoursForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\BusLinesForm.resx">
-      <DependentUpon>BusLinesForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\AjoutFrequences.resx">
+      <DependentUpon>AjoutFrequences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BusLineForm.resx">
+      <DependentUpon>BusLineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusStationsForm.resx">
       <DependentUpon>BusStationsForm.cs</DependentUpon>
@@ -159,7 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -170,6 +185,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\generalform.resx">
       <DependentUpon>generalform.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,8 +216,6 @@
     <None Include="Properties\DataSources\Statfile.Model.PopulationBracket.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.School.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.Street.datasource" />
-    <None Include="Properties\DataSources\Statfile.View.BusLinesForm.datasource" />
-    <None Include="Properties\DataSources\Statfile.View.BusStationsForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -213,8 +229,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

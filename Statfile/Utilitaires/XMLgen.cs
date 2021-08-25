@@ -40,99 +40,100 @@ namespace Statfile.Controller
 
         public void writeXML(string path)
         {
-            try { 
-            GeneralXMLgen genxml = new GeneralXMLgen();
-            ParametersXMLgen paramxml = new ParametersXMLgen();
-            PopulationXMLgen popxml = new PopulationXMLgen();
-            WorkXMLgen workxml = new WorkXMLgen();
-            StreetsXMLgen streetxml = new StreetsXMLgen();
-            EntranceXMLgen entrancexml = new EntranceXMLgen();
-            SchoolXMLgen schoolxml = new SchoolXMLgen();
-            BusStationXMLgen busStationxml = new BusStationXMLgen();
-            FrequencyXMLgen frequencyXML = new FrequencyXMLgen();
+            try
+            {
+                GeneralXMLgen genxml = new GeneralXMLgen();
+                ParametersXMLgen paramxml = new ParametersXMLgen();
+                PopulationXMLgen popxml = new PopulationXMLgen();
+                WorkXMLgen workxml = new WorkXMLgen();
+                StreetsXMLgen streetxml = new StreetsXMLgen();
+                EntranceXMLgen entrancexml = new EntranceXMLgen();
+                SchoolXMLgen schoolxml = new SchoolXMLgen();
+                BusStationXMLgen busStationxml = new BusStationXMLgen();
+                FrequencyXMLgen frequencyXML = new FrequencyXMLgen();
 
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.IndentChars = ("    ");
-            settings.CloseOutput = true;
-            settings.OmitXmlDeclaration = true;
-            XmlWriter writer = XmlWriter.Create(path, settings);
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                settings.IndentChars = ("    ");
+                settings.CloseOutput = true;
+                XmlWriter writer = XmlWriter.Create(path, settings);
 
-            PropertyInfo[] propertyInfosGen = genxml.getProperties();
-            PropertyInfo[] propertyInfosParams = paramxml.getProperties();
-            PropertyInfo[] propertyInfosPop = popxml.getProperties();
-            PropertyInfo[] propertyInfosWorkOpening = workxml.getPropertiesOpening();
-            PropertyInfo[] propertyInfosWorkClosing = workxml.getPropertiesClosing();
-            PropertyInfo[] propertyInfosStreets = streetxml.getProperties();
-            PropertyInfo[] propertyInfosEntrances = entrancexml.getProperties();
-            PropertyInfo[] propertyInfosSchool = schoolxml.getProperties();
-            PropertyInfo[] propertyInfosBusStation = busStationxml.getProperties();
-            PropertyInfo[] propertyInfosFrequency = frequencyXML.getProperties();
+                PropertyInfo[] propertyInfosGen = genxml.getProperties();
+                PropertyInfo[] propertyInfosParams = paramxml.getProperties();
+                PropertyInfo[] propertyInfosPop = popxml.getProperties();
+                PropertyInfo[] propertyInfosWorkOpening = workxml.getPropertiesOpening();
+                PropertyInfo[] propertyInfosWorkClosing = workxml.getPropertiesClosing();
+                PropertyInfo[] propertyInfosStreets = streetxml.getProperties();
+                PropertyInfo[] propertyInfosEntrances = entrancexml.getProperties();
+                PropertyInfo[] propertyInfosSchool = schoolxml.getProperties();
+                PropertyInfo[] propertyInfosBusStation = busStationxml.getProperties();
+                PropertyInfo[] propertyInfosFrequency = frequencyXML.getProperties();
 
-            //START XML
-             writer.WriteStartElement("city");
-           // PARTIE GENERAL
-            writer.WriteStartElement("general");
-            foreach (PropertyInfo propertyInfo in propertyInfosGen)
-            { string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
-              writer.WriteAttributeString(name, general.GetType().GetProperty(propertyInfo.Name).GetValue(general, null).ToString().Replace(',', '.')); 
-            }
-            writer.WriteEndElement();
-            //PARTIE PARAMETRES
+                //START XML
+                writer.WriteStartElement("city");
+                // PARTIE GENERAL
+                writer.WriteStartElement("general");
+                foreach (PropertyInfo propertyInfo in propertyInfosGen)
+                {
+                    string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
+                    writer.WriteAttributeString(name, general.GetType().GetProperty(propertyInfo.Name).GetValue(general, null).ToString().Replace(',', '.'));
+                }
+                writer.WriteEndElement();
+                //PARTIE PARAMETRES
                 writer.WriteStartElement("parameters");
-            foreach (PropertyInfo propertyInfo in propertyInfosParams)
-            {
-                string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
-                writer.WriteAttributeString(name, parameters.GetType().GetProperty(propertyInfo.Name).GetValue(parameters, null).ToString().Replace(',', '.'));
-            }
-                writer.WriteEndElement();
-
-            //PARTIE POPULATION
-            writer.WriteStartElement("population");
-
-            for (int i = 0; i < Population.Count(); i++)
-            {
-                writer.WriteStartElement("bracket");
-                foreach (PropertyInfo propertyInfo in propertyInfosPop)
+                foreach (PropertyInfo propertyInfo in propertyInfosParams)
                 {
                     string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
-                    writer.WriteAttributeString(name, Population[i].GetType().GetProperty(propertyInfo.Name).GetValue(Population[i], null).ToString().Replace(',', '.'));
+                    writer.WriteAttributeString(name, parameters.GetType().GetProperty(propertyInfo.Name).GetValue(parameters, null).ToString().Replace(',', '.'));
                 }
-   
                 writer.WriteEndElement();
 
-            }
-            writer.WriteEndElement();
-            //PARTIE WORKHOURS
-            writer.WriteStartElement("workHours");
+                //PARTIE POPULATION
+                writer.WriteStartElement("population");
 
-            for (int i = 0; i < Openings.Count(); i++)
-            {
-                writer.WriteStartElement("opening");
-                foreach (PropertyInfo propertyInfo in propertyInfosWorkOpening)
+                for (int i = 0; i < Population.Count(); i++)
                 {
-                    string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
-                    writer.WriteAttributeString(name, Openings[i].GetType().GetProperty(propertyInfo.Name).GetValue(Openings[i], null).ToString().Replace(',', '.'));
+                    writer.WriteStartElement("bracket");
+                    foreach (PropertyInfo propertyInfo in propertyInfosPop)
+                    {
+                        string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
+                        writer.WriteAttributeString(name, Population[i].GetType().GetProperty(propertyInfo.Name).GetValue(Population[i], null).ToString().Replace(',', '.'));
+                    }
+
+                    writer.WriteEndElement();
+
                 }
-
                 writer.WriteEndElement();
+                //PARTIE WORKHOURS
+                writer.WriteStartElement("workHours");
 
-            }
-
-            for (int i = 0; i < Closings.Count(); i++)
-            {
-                writer.WriteStartElement("closing");
-                foreach (PropertyInfo propertyInfo in propertyInfosWorkClosing)
+                for (int i = 0; i < Openings.Count(); i++)
                 {
-                    string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
-                    writer.WriteAttributeString(name, Closings[i].GetType().GetProperty(propertyInfo.Name).GetValue(Closings[i], null).ToString().Replace(',', '.'));
+                    writer.WriteStartElement("opening");
+                    foreach (PropertyInfo propertyInfo in propertyInfosWorkOpening)
+                    {
+                        string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
+                        writer.WriteAttributeString(name, Openings[i].GetType().GetProperty(propertyInfo.Name).GetValue(Openings[i], null).ToString().Replace(',', '.'));
+                    }
+
+                    writer.WriteEndElement();
+
                 }
 
-                writer.WriteEndElement();
+                for (int i = 0; i < Closings.Count(); i++)
+                {
+                    writer.WriteStartElement("closing");
+                    foreach (PropertyInfo propertyInfo in propertyInfosWorkClosing)
+                    {
+                        string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
+                        writer.WriteAttributeString(name, Closings[i].GetType().GetProperty(propertyInfo.Name).GetValue(Closings[i], null).ToString().Replace(',', '.'));
+                    }
 
-            }
-            writer.WriteEndElement();
+                    writer.WriteEndElement();
+
+                }
+                writer.WriteEndElement();
                 //PARTIE RUES
                 writer.WriteStartElement("streets");
 
@@ -217,6 +218,7 @@ namespace Statfile.Controller
                         writer.WriteEndElement();
                     }
                     writer.WriteEndElement();
+                    writer.WriteStartElement("revStations");
                     for (int j = 0; j < revStations.Count(); j++)
                     {
                         writer.WriteStartElement("station");
@@ -237,13 +239,15 @@ namespace Statfile.Controller
 
                     }
                     writer.WriteEndElement();
+                    writer.WriteEndElement();
                 }
                 writer.WriteEndElement();
-            writer.WriteFullEndElement();
-            writer.Close();
-            writer.Flush();
+                writer.WriteFullEndElement();
+                writer.Close();
+                writer.Flush();
 
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }

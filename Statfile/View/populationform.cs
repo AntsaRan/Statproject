@@ -45,8 +45,8 @@ namespace Statfile.View
                 if (MessageBox.Show("Voulez vous vraiment supprimer", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                   populationBracketBindingSource.RemoveCurrent();
-                   
+                    populationBracketBindingSource.RemoveCurrent();
+
                 }
             }
         }
@@ -63,9 +63,9 @@ namespace Statfile.View
             }
             else
             {
-                if (int.Parse(endAge.Text)> int.Parse(beginAge.Text))
+                if (int.Parse(endAge.Text) > int.Parse(beginAge.Text))
                 {
-                  
+
                     PopulationBracket popu = new PopulationBracket(int.Parse(beginAge.Text), int.Parse(endAge.Text), int.Parse(peopleNbr.Text));
                     ValidationContext context = new ValidationContext(popu, null, null);
                     IList<ValidationResult> errors = new List<ValidationResult>();
@@ -89,7 +89,7 @@ namespace Statfile.View
                     MessageBox.Show(" L'âge fin doit être supérieure à l'âge de début.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
+
             }
         }
 
@@ -126,6 +126,30 @@ namespace Statfile.View
         private void peopleNbr_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void beginAge_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void peopleNbr_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void endAge_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }

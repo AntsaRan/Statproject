@@ -193,7 +193,7 @@ namespace Statfile.View
             this.workpos.Size = new System.Drawing.Size(136, 24);
             this.workpos.TabIndex = 103;
             this.workpos.TextChanged += new System.EventHandler(this.peopleNbr_TextChanged);
-            this.workpos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.workpos_KeyPress);
+            this.workpos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.workpos_KeyPress_1);
             // 
             // pop
             // 
@@ -202,7 +202,7 @@ namespace Statfile.View
             this.pop.Name = "pop";
             this.pop.Size = new System.Drawing.Size(134, 24);
             this.pop.TabIndex = 102;
-            this.pop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pop_KeyPress);
+            this.pop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pop_KeyPress_1);
             // 
             // edge
             // 

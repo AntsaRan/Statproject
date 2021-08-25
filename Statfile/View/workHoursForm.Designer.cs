@@ -241,7 +241,7 @@ namespace Statfile.View
             this.helpProvider1.SetShowHelp(this.houropening, true);
             this.houropening.Size = new System.Drawing.Size(85, 22);
             this.houropening.TabIndex = 135;
-            this.houropening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.houropening_KeyPress);
+            this.houropening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.houropening_KeyPress_1);
             // 
             // panel4
             // 
@@ -305,6 +305,7 @@ namespace Statfile.View
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 141;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
             // ajoutopening
             // 
@@ -325,6 +326,7 @@ namespace Statfile.View
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 140;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // label4
             // 
@@ -353,7 +355,7 @@ namespace Statfile.View
             this.proportionopening.Name = "proportionopening";
             this.proportionopening.Size = new System.Drawing.Size(93, 22);
             this.proportionopening.TabIndex = 136;
-            this.proportionopening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionopening_KeyPress);
+            this.proportionopening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionopening_KeyPress_1);
             // 
             // panel6
             // 
@@ -375,7 +377,7 @@ namespace Statfile.View
             this.proportionclosing.Name = "proportionclosing";
             this.proportionclosing.Size = new System.Drawing.Size(93, 22);
             this.proportionclosing.TabIndex = 134;
-            this.proportionclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionclosing_KeyPress);
+            this.proportionclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionclosing_KeyPress_1);
             // 
             // hourclosing
             // 
@@ -384,7 +386,7 @@ namespace Statfile.View
             this.hourclosing.Name = "hourclosing";
             this.hourclosing.Size = new System.Drawing.Size(85, 22);
             this.hourclosing.TabIndex = 133;
-            this.hourclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourclosing_KeyPress);
+            this.hourclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourclosing_KeyPress_1);
             // 
             // label7
             // 

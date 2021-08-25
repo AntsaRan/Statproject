@@ -134,7 +134,7 @@ namespace Statfile.View
 
         private void edge_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+
         }
 
         private void pos_KeyPress(object sender, KeyPressEventArgs e)
@@ -156,6 +156,30 @@ namespace Statfile.View
         private void outgoing_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pos_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void incoming_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void outgoing_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+              if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
