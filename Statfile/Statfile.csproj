@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormControls\Session.cs" />
     <Compile Include="Model\BusLine.cs" />
     <Compile Include="Model\Frequency.cs" />
     <Compile Include="Utilitaires\BusStationXMLgen.cs" />
@@ -78,6 +77,12 @@
     <Compile Include="Model\PopulationBracket.cs" />
     <Compile Include="Model\School.cs" />
     <Compile Include="Model\Street.cs" />
+    <Compile Include="View\BusLinesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BusLinesForm.Designer.cs">
+      <DependentUpon>BusLinesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\BusStationsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,20 +139,14 @@
     <Compile Include="View\streetsForm.Designer.cs">
       <DependentUpon>streetsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BusLineForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\BusLineForm.Designer.cs">
-      <DependentUpon>BusLineForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\workHoursForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\workHoursForm.Designer.cs">
       <DependentUpon>workHoursForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\BusLineForm.resx">
-      <DependentUpon>BusLineForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\BusLinesForm.resx">
+      <DependentUpon>BusLinesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\BusStationsForm.resx">
       <DependentUpon>BusStationsForm.cs</DependentUpon>
@@ -160,6 +159,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,10 +193,13 @@
     <None Include="Properties\DataSources\Statfile.Model.BusStation.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.Closing.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.Entrance.datasource" />
+    <None Include="Properties\DataSources\Statfile.Model.Frequency.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.Opening.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.PopulationBracket.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.School.datasource" />
     <None Include="Properties\DataSources\Statfile.Model.Street.datasource" />
+    <None Include="Properties\DataSources\Statfile.View.BusLinesForm.datasource" />
+    <None Include="Properties\DataSources\Statfile.View.BusStationsForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -210,6 +213,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="FormControls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

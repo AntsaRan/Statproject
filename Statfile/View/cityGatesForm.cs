@@ -134,7 +134,7 @@ namespace Statfile.View
 
         private void edge_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+           
         }
 
         private void pos_KeyPress(object sender, KeyPressEventArgs e)

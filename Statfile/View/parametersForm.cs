@@ -46,10 +46,10 @@ namespace Statfile.View
                 Parameters = new Parameters();
                 Parameters.CarPreference = double.Parse(carPreference.Text);
                 Parameters.MeanTimePerKmInCity = int.Parse(meanTimePerKmInCity.Text);
-                Parameters.FreeTimeActivityRate = double.Parse(freeTimeActivityRate.Text, CultureInfo.InvariantCulture);
+                Parameters.FreeTimeActivityRate = double.Parse(freeTimeActivityRate.Text,CultureInfo.InvariantCulture);
                 Parameters.UniformRandomTraffic = double.Parse(uniformRandomTraffic.Text, CultureInfo.InvariantCulture);
                 Parameters.DepartureVariation = double.Parse(departureVariation.Text);
-
+               
                 ValidationContext context = new ValidationContext(Parameters, null, null);
                 IList<ValidationResult> errors = new List<ValidationResult>();
                 if (!Validator.TryValidateObject(Parameters, context, errors, true))

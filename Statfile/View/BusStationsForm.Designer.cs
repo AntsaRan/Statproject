@@ -34,9 +34,6 @@ namespace Statfile.View
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.busStationDatagridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.busStationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -80,14 +77,9 @@ namespace Statfile.View
             // 
             // busStationDatagridView
             // 
-            this.busStationDatagridView.AutoGenerateColumns = false;
             this.busStationDatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.busStationDatagridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.edgeDataGridViewTextBoxColumn,
-            this.posDataGridViewTextBoxColumn,
             this.Supprimer});
-            this.busStationDatagridView.DataSource = this.busStationBindingSource;
             this.busStationDatagridView.Location = new System.Drawing.Point(46, 116);
             this.busStationDatagridView.Margin = new System.Windows.Forms.Padding(8);
             this.busStationDatagridView.Name = "busStationDatagridView";
@@ -97,34 +89,12 @@ namespace Statfile.View
             this.busStationDatagridView.TabIndex = 92;
             this.busStationDatagridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.streetDatagridView_CellContentClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // edgeDataGridViewTextBoxColumn
-            // 
-            this.edgeDataGridViewTextBoxColumn.DataPropertyName = "Edge";
-            this.edgeDataGridViewTextBoxColumn.HeaderText = "Edge";
-            this.edgeDataGridViewTextBoxColumn.Name = "edgeDataGridViewTextBoxColumn";
-            // 
-            // posDataGridViewTextBoxColumn
-            // 
-            this.posDataGridViewTextBoxColumn.DataPropertyName = "Pos";
-            this.posDataGridViewTextBoxColumn.HeaderText = "Pos";
-            this.posDataGridViewTextBoxColumn.Name = "posDataGridViewTextBoxColumn";
-            // 
             // Supprimer
             // 
             this.Supprimer.HeaderText = "Supprimer";
             this.Supprimer.Name = "Supprimer";
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseColumnTextForButtonValue = true;
-            // 
-            // busStationBindingSource
-            // 
-            this.busStationBindingSource.DataSource = typeof(Statfile.Model.BusStation);
             // 
             // panel1
             // 
@@ -145,7 +115,7 @@ namespace Statfile.View
             // posinfo
             // 
             this.posinfo.Image = ((System.Drawing.Image)(resources.GetObject("posinfo.Image")));
-            this.posinfo.Location = new System.Drawing.Point(570, 71);
+            this.posinfo.Location = new System.Drawing.Point(273, 77);
             this.posinfo.Name = "posinfo";
             this.posinfo.Size = new System.Drawing.Size(29, 19);
             this.posinfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -156,7 +126,7 @@ namespace Statfile.View
             // edgeinfo
             // 
             this.edgeinfo.Image = ((System.Drawing.Image)(resources.GetObject("edgeinfo.Image")));
-            this.edgeinfo.Location = new System.Drawing.Point(248, 73);
+            this.edgeinfo.Location = new System.Drawing.Point(548, 77);
             this.edgeinfo.Name = "edgeinfo";
             this.edgeinfo.Size = new System.Drawing.Size(29, 19);
             this.edgeinfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -167,7 +137,7 @@ namespace Statfile.View
             // position
             // 
             this.position.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.position.Location = new System.Drawing.Point(428, 71);
+            this.position.Location = new System.Drawing.Point(131, 77);
             this.position.Name = "position";
             this.position.Size = new System.Drawing.Size(136, 24);
             this.position.TabIndex = 103;
@@ -176,7 +146,7 @@ namespace Statfile.View
             // edge
             // 
             this.edge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edge.Location = new System.Drawing.Point(108, 71);
+            this.edge.Location = new System.Drawing.Point(408, 75);
             this.edge.Name = "edge";
             this.edge.Size = new System.Drawing.Size(134, 24);
             this.edge.TabIndex = 102;
@@ -185,7 +155,7 @@ namespace Statfile.View
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(339, 76);
+            this.label4.Location = new System.Drawing.Point(42, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 100;
@@ -195,7 +165,7 @@ namespace Statfile.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 76);
+            this.label1.Location = new System.Drawing.Point(330, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 32);
             this.label1.TabIndex = 99;

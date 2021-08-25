@@ -120,11 +120,20 @@
   <metadata name="Supprimer.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="schoolBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="busLineBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="IdBus.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewButtonColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="frequencyBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>189, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="endageinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="maxtripinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
@@ -139,7 +148,7 @@
         QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="closeinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="endinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
@@ -169,7 +178,7 @@
         QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="openinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="rateinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
@@ -184,52 +193,28 @@
         QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="posinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
-        kz9LQmEYxQVB0EG4KESCONSk94KIKWqgBoKoDX2CPkG2ZIsu4iC4+AUEZ5fEUFt0CSWCuLm4RUNTQ9BQ
-        W8jteb29cP8cJSF74De85znnPINXi6Io/wIUtwEUtwEUVzGdTveazeYpYzKZ7CPPKqCoZT6fC6FQ6M5C
-        VoQkSQ+yLO+irBYocrLZ7BUqR6RSqRvUwYEiw+PxvKDCdbjd7lfUxYBiJpO5RkWMxWJBFjKBHSORSIx5
-        jxaTMJvNdlABw2azkUUdl8sFPQz0oegejEAg8IjCnHA4rMRiMbjj+Hy+J2Ov7rEUDCEj9XpdaTQacKfF
-        1Kt9jMdjEYU40WiUbOrQ7wg9nG63e0g2fKhWq52hEIc+YbKpk8/noYdTLpcvyYYPVavVcxTiJJNJsqmT
-        y+Wgh7P20HA4DKMQZ5NDnU7niGz40FIwBLRscohG32sUvF7vMwoyfntIEIQ3suh6dQ/GaDSSUJiRTqfJ
-        ok6hUIAeRr/fj5BF16t7cCKRyC0qEEWR1urE43HT/scj09rUaRI4drv9ExUVi0WlVCqZdIbVav1CXQwo
-        coLB4D0qRPj9/hnq4EBRy2AwOHA6ne+onOFwOD56vV4MZbVAcRXtdvuY/RErlcpFq9U6QZ5VQHEbQHEb
-        QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="capinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
-        kz9LQmEYxQVB0EG4KESCONSk94KIKWqgBoKoDX2CPkG2ZIsu4iC4+AUEZ5fEUFt0CSWCuLm4RUNTQ9BQ
-        W8jteb29cP8cJSF74De85znnPINXi6Io/wIUtwEUtwEUVzGdTveazeYpYzKZ7CPPKqCoZT6fC6FQ6M5C
-        VoQkSQ+yLO+irBYocrLZ7BUqR6RSqRvUwYEiw+PxvKDCdbjd7lfUxYBiJpO5RkWMxWJBFjKBHSORSIx5
-        jxaTMJvNdlABw2azkUUdl8sFPQz0oegejEAg8IjCnHA4rMRiMbjj+Hy+J2Ov7rEUDCEj9XpdaTQacKfF
-        1Kt9jMdjEYU40WiUbOrQ7wg9nG63e0g2fKhWq52hEIc+YbKpk8/noYdTLpcvyYYPVavVcxTiJJNJsqmT
-        y+Wgh7P20HA4DKMQZ5NDnU7niGz40FIwBLRscohG32sUvF7vMwoyfntIEIQ3suh6dQ/GaDSSUJiRTqfJ
-        ok6hUIAeRr/fj5BF16t7cCKRyC0qEEWR1urE43HT/scj09rUaRI4drv9ExUVi0WlVCqZdIbVav1CXQwo
-        coLB4D0qRPj9/hnq4EBRy2AwOHA6ne+onOFwOD56vV4MZbVAcRXtdvuY/RErlcpFq9U6QZ5VQHEbQHEb
-        QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="edgeinfo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABt0RVh0U29mdHdhcmUAQ2Vsc3lzIFN0dWRpbyBUb29swafhfAAAAe1JREFUSEu9
-        kz9LQmEYxQVB0EG4KESCONSk94KIKWqgBoKoDX2CPkG2ZIsu4iC4+AUEZ5fEUFt0CSWCuLm4RUNTQ9BQ
-        W8jteb29cP8cJSF74De85znnPINXi6Io/wIUtwEUtwEUVzGdTveazeYpYzKZ7CPPKqCoZT6fC6FQ6M5C
-        VoQkSQ+yLO+irBYocrLZ7BUqR6RSqRvUwYEiw+PxvKDCdbjd7lfUxYBiJpO5RkWMxWJBFjKBHSORSIx5
-        jxaTMJvNdlABw2azkUUdl8sFPQz0oegejEAg8IjCnHA4rMRiMbjj+Hy+J2Ov7rEUDCEj9XpdaTQacKfF
-        1Kt9jMdjEYU40WiUbOrQ7wg9nG63e0g2fKhWq52hEIc+YbKpk8/noYdTLpcvyYYPVavVcxTiJJNJsqmT
-        y+Wgh7P20HA4DKMQZ5NDnU7niGz40FIwBLRscohG32sUvF7vMwoyfntIEIQ3suh6dQ/GaDSSUJiRTqfJ
-        ok6hUIAeRr/fj5BF16t7cCKRyC0qEEWR1urE43HT/scj09rUaRI4drv9ExUVi0WlVCqZdIbVav1CXQwo
-        coLB4D0qRPj9/hnq4EBRy2AwOHA6ne+onOFwOD56vV4MZbVAcRXtdvuY/RErlcpFq9U6QZ5VQHEbQHEb
-        QPHvUSzfpHQBSnQ0ZoAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="schoolBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>183, 17</value>
+  <metadata name="busStationsFormBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>374, 17</value>
+  </metadata>
+  <metadata name="busLinesFormBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>596, 17</value>
+  </metadata>
+  <metadata name="busLinesFormBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>802, 17</value>
+  </metadata>
+  <metadata name="dataGridViewButtonColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="busStationBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="dataGridViewButtonColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="busStationBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>205, 56</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
   </metadata>
 </root>

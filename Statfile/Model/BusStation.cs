@@ -7,24 +7,19 @@ using System.Threading.Tasks;
 
 namespace Statfile.Model
 {
-    public class BusStation
+    [Serializable]
+    public class BusStation 
     {
         private int id;
         private string edge;
         private int pos;
-
         public BusStation(int id, string edge, int pos)
         {
             Id = id;
             Edge = edge;
             Pos = pos;
         }
-        public BusStation(int id)
-        {
-            Id = id;
-            Edge = edge;
-            Pos = pos;
-        }
+        
         [Required]
         public int Id { get => id; set => id = value; }
         [Required]

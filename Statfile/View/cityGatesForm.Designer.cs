@@ -182,6 +182,7 @@ namespace Statfile.View
             this.outgoing.Name = "outgoing";
             this.outgoing.Size = new System.Drawing.Size(134, 24);
             this.outgoing.TabIndex = 108;
+            this.outgoing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.outgoing_KeyPress);
             // 
             // label6
             // 
@@ -233,6 +234,7 @@ namespace Statfile.View
             this.incoming.Name = "incoming";
             this.incoming.Size = new System.Drawing.Size(136, 24);
             this.incoming.TabIndex = 103;
+            this.incoming.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.incoming_KeyPress);
             // 
             // pos
             // 
@@ -241,6 +243,7 @@ namespace Statfile.View
             this.pos.Name = "pos";
             this.pos.Size = new System.Drawing.Size(134, 24);
             this.pos.TabIndex = 102;
+            this.pos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pos_KeyPress);
             // 
             // edge
             // 
@@ -249,6 +252,7 @@ namespace Statfile.View
             this.edge.Name = "edge";
             this.edge.Size = new System.Drawing.Size(136, 24);
             this.edge.TabIndex = 101;
+            this.edge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edge_KeyPress);
             // 
             // label4
             // 

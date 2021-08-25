@@ -111,8 +111,7 @@ namespace Statfile.View
                         streetBindingSource.Add(str);
                     }
 
-                }
-                catch (Exception ex)
+                }catch(Exception ex)
                 {
                     throw ex;
                 }

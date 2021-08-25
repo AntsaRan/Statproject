@@ -1,4 +1,5 @@
 ﻿using Statfile.Model;
+using Statfile.Utilitaires;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Statfile.Controller
         private List<Entrance> entrances;
         private List<School> schools;
         private List<BusStation> busstation;
+        private List<BusLine> buslines;
 
         internal General General { get => general; set => general = value; }
         internal Parameters Parameters { get => parameters; set => parameters = value; }
@@ -30,6 +32,7 @@ namespace Statfile.Controller
         internal List<Entrance> Entrances { get => entrances; set => entrances = value; }
         internal List<School> Schools { get => schools; set => schools = value; }
         internal List<BusStation> Busstation { get => busstation; set => busstation = value; }
+        internal List<BusLine> Buslines { get => buslines; set => buslines = value; }
 
         public XMLgen()
         {
@@ -46,6 +49,7 @@ namespace Statfile.Controller
             EntranceXMLgen entrancexml = new EntranceXMLgen();
             SchoolXMLgen schoolxml = new SchoolXMLgen();
             BusStationXMLgen busStationxml = new BusStationXMLgen();
+            FrequencyXMLgen frequencyXML = new FrequencyXMLgen();
 
 
             XmlWriterSettings settings = new XmlWriterSettings();
@@ -64,6 +68,7 @@ namespace Statfile.Controller
             PropertyInfo[] propertyInfosEntrances = entrancexml.getProperties();
             PropertyInfo[] propertyInfosSchool = schoolxml.getProperties();
             PropertyInfo[] propertyInfosBusStation = busStationxml.getProperties();
+            PropertyInfo[] propertyInfosFrequency = frequencyXML.getProperties();
 
             //START XML
              writer.WriteStartElement("city");
@@ -193,7 +198,47 @@ namespace Statfile.Controller
                 }
                 writer.WriteEndElement();
                 //BUSLINES
+                writer.WriteStartElement("busLines");
 
+                for (int i = 0; i < Buslines.Count(); i++)
+                {
+                    List<BusStation> stations = Buslines[i].Stations;
+                    List<BusStation> revStations = Buslines[i].RevStations;
+                    List<Frequency> frequencies = Buslines[i].Frequencies;
+
+                    writer.WriteStartElement("busLine");
+                    writer.WriteAttributeString("id", Buslines[i].Id.ToString());
+                    writer.WriteAttributeString("maxTripDuration", Buslines[i].MaxTripDuration.ToString());
+                    writer.WriteStartElement("stations");
+                    for (int j = 0; j < stations.Count(); j++)
+                    {
+                        writer.WriteStartElement("station");
+                        writer.WriteAttributeString("refId", stations[i].Id.ToString());
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    for (int j = 0; j < revStations.Count(); j++)
+                    {
+                        writer.WriteStartElement("station");
+                        writer.WriteAttributeString("refId", stations[i].Id.ToString());
+                        writer.WriteEndElement();
+                    }
+                    writer.WriteEndElement();
+                    writer.WriteStartElement("frequencies");
+                    for (int j = 0; j < frequencies.Count(); j++)
+                    {
+                        writer.WriteStartElement("frequency");
+                        foreach (PropertyInfo propertyInfo in propertyInfosFrequency)
+                        {
+                            string name = char.ToLower(propertyInfo.Name[0]) + propertyInfo.Name.Substring(1);
+                            writer.WriteAttributeString(name, frequencies[i].GetType().GetProperty(propertyInfo.Name).GetValue(frequencies[i], null).ToString().Replace(',', '.'));
+                        }
+                        writer.WriteEndElement();
+
+                    }
+                    writer.WriteEndElement();
+                }
+                writer.WriteEndElement();
             writer.WriteFullEndElement();
             writer.Close();
             writer.Flush();

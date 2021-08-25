@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Statfile.Model
 {
-
+  
     public class Frequency
     {
         private int begin;

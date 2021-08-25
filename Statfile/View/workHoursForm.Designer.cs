@@ -35,9 +35,15 @@ namespace Statfile.View
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.closingGrid = new System.Windows.Forms.DataGridView();
+            this.hourDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proportionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupprimerC = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.closingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openingGrid = new System.Windows.Forms.DataGridView();
+            this.hourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proportionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupprimerO = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.openingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.precpop = new System.Windows.Forms.Button();
@@ -61,15 +67,11 @@ namespace Statfile.View
             this.label7 = new System.Windows.Forms.Label();
             this.ajoutclosing = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.hourDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proportionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proportionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.openingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closingGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openingGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openingBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,8 +79,6 @@ namespace Statfile.View
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closingBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.openingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,12 +129,28 @@ namespace Statfile.View
             this.closingGrid.TabIndex = 89;
             this.closingGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.closingGrid_CellContentClick);
             // 
+            // hourDataGridViewTextBoxColumn1
+            // 
+            this.hourDataGridViewTextBoxColumn1.DataPropertyName = "Hour";
+            this.hourDataGridViewTextBoxColumn1.HeaderText = "Hour";
+            this.hourDataGridViewTextBoxColumn1.Name = "hourDataGridViewTextBoxColumn1";
+            // 
+            // proportionDataGridViewTextBoxColumn1
+            // 
+            this.proportionDataGridViewTextBoxColumn1.DataPropertyName = "Proportion";
+            this.proportionDataGridViewTextBoxColumn1.HeaderText = "Proportion";
+            this.proportionDataGridViewTextBoxColumn1.Name = "proportionDataGridViewTextBoxColumn1";
+            // 
             // SupprimerC
             // 
             this.SupprimerC.HeaderText = "Supprimer";
             this.SupprimerC.Name = "SupprimerC";
             this.SupprimerC.Text = "Supprimer";
             this.SupprimerC.UseColumnTextForButtonValue = true;
+            // 
+            // closingBindingSource
+            // 
+            this.closingBindingSource.DataSource = typeof(Statfile.Model.Closing);
             // 
             // openingGrid
             // 
@@ -152,12 +168,28 @@ namespace Statfile.View
             this.openingGrid.TabIndex = 89;
             this.openingGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.openingGrid_CellContentClick);
             // 
+            // hourDataGridViewTextBoxColumn
+            // 
+            this.hourDataGridViewTextBoxColumn.DataPropertyName = "Hour";
+            this.hourDataGridViewTextBoxColumn.HeaderText = "Hour";
+            this.hourDataGridViewTextBoxColumn.Name = "hourDataGridViewTextBoxColumn";
+            // 
+            // proportionDataGridViewTextBoxColumn
+            // 
+            this.proportionDataGridViewTextBoxColumn.DataPropertyName = "Proportion";
+            this.proportionDataGridViewTextBoxColumn.HeaderText = "Proportion";
+            this.proportionDataGridViewTextBoxColumn.Name = "proportionDataGridViewTextBoxColumn";
+            // 
             // SupprimerO
             // 
             this.SupprimerO.HeaderText = "Supprimer";
             this.SupprimerO.Name = "SupprimerO";
             this.SupprimerO.Text = "Supprimer";
             this.SupprimerO.UseColumnTextForButtonValue = true;
+            // 
+            // openingBindingSource
+            // 
+            this.openingBindingSource.DataSource = typeof(Statfile.Model.Opening);
             // 
             // panel2
             // 
@@ -209,6 +241,7 @@ namespace Statfile.View
             this.helpProvider1.SetShowHelp(this.houropening, true);
             this.houropening.Size = new System.Drawing.Size(85, 22);
             this.houropening.TabIndex = 135;
+            this.houropening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.houropening_KeyPress);
             // 
             // panel4
             // 
@@ -320,6 +353,7 @@ namespace Statfile.View
             this.proportionopening.Name = "proportionopening";
             this.proportionopening.Size = new System.Drawing.Size(93, 22);
             this.proportionopening.TabIndex = 136;
+            this.proportionopening.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionopening_KeyPress);
             // 
             // panel6
             // 
@@ -341,6 +375,7 @@ namespace Statfile.View
             this.proportionclosing.Name = "proportionclosing";
             this.proportionclosing.Size = new System.Drawing.Size(93, 22);
             this.proportionclosing.TabIndex = 134;
+            this.proportionclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.proportionclosing_KeyPress);
             // 
             // hourclosing
             // 
@@ -349,6 +384,7 @@ namespace Statfile.View
             this.hourclosing.Name = "hourclosing";
             this.hourclosing.Size = new System.Drawing.Size(85, 22);
             this.hourclosing.TabIndex = 133;
+            this.hourclosing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.hourclosing_KeyPress);
             // 
             // label7
             // 
@@ -380,38 +416,6 @@ namespace Statfile.View
             this.label5.TabIndex = 136;
             this.label5.Text = "Hour\r\n(heure)\r\n(sec)\r\n";
             // 
-            // hourDataGridViewTextBoxColumn1
-            // 
-            this.hourDataGridViewTextBoxColumn1.DataPropertyName = "Hour";
-            this.hourDataGridViewTextBoxColumn1.HeaderText = "Hour";
-            this.hourDataGridViewTextBoxColumn1.Name = "hourDataGridViewTextBoxColumn1";
-            // 
-            // proportionDataGridViewTextBoxColumn1
-            // 
-            this.proportionDataGridViewTextBoxColumn1.DataPropertyName = "Proportion";
-            this.proportionDataGridViewTextBoxColumn1.HeaderText = "Proportion";
-            this.proportionDataGridViewTextBoxColumn1.Name = "proportionDataGridViewTextBoxColumn1";
-            // 
-            // closingBindingSource
-            // 
-            this.closingBindingSource.DataSource = typeof(Statfile.Model.Closing);
-            // 
-            // hourDataGridViewTextBoxColumn
-            // 
-            this.hourDataGridViewTextBoxColumn.DataPropertyName = "Hour";
-            this.hourDataGridViewTextBoxColumn.HeaderText = "Hour";
-            this.hourDataGridViewTextBoxColumn.Name = "hourDataGridViewTextBoxColumn";
-            // 
-            // proportionDataGridViewTextBoxColumn
-            // 
-            this.proportionDataGridViewTextBoxColumn.DataPropertyName = "Proportion";
-            this.proportionDataGridViewTextBoxColumn.HeaderText = "Proportion";
-            this.proportionDataGridViewTextBoxColumn.Name = "proportionDataGridViewTextBoxColumn";
-            // 
-            // openingBindingSource
-            // 
-            this.openingBindingSource.DataSource = typeof(Statfile.Model.Opening);
-            // 
             // workHoursForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,7 +434,9 @@ namespace Statfile.View
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closingGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.openingGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openingBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -443,8 +449,6 @@ namespace Statfile.View
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.openingBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

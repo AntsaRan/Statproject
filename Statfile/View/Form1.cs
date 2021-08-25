@@ -14,9 +14,8 @@ namespace Statfile
 {
     public partial class Form1 : Form
     {
-     
+      
         private string path;
-
         public Form1()
         {
             InitializeComponent();
@@ -56,9 +55,10 @@ namespace Statfile
             // Ecoute les évènements du formulaire " busstation" suivant
             busStationsForm1.suivantform += new EventHandler(BusStation_suivant);
             // Ecoute les évènements du formulaire " busstation" precedent
-            busLineForm2.precedent += new EventHandler(BusLine_percedent);
+            busLinesForm1.precedent += new EventHandler(BusLine_percedent);
             // Ecoute les évènements du formulaire " busstation" suivant
-            busLineForm2.suivantform += new EventHandler(BusLine_suivant);
+            busLinesForm1.suivantform += new EventHandler(BusLine_suivant);
+
         }
         private void BusLine_percedent(object sender, EventArgs e)
         {
@@ -90,9 +90,8 @@ namespace Statfile
         private void BusStation_suivant(object sender, EventArgs e)
         {
             busLinesbtn.Enabled = true;
-            busLineForm2.setstations(busStationsForm1.BusStations);
-            busLineForm2.BringToFront();
-            //cityGatesForm1.BringToFront();
+            //busLinesForm1.SetList(busStationsForm1.BusStations);
+            busLinesForm1.BringToFront();
         }
         private void City_percedent(object sender, EventArgs e)
         {
@@ -150,7 +149,19 @@ namespace Statfile
             streetsForm1.BringToFront();
         }
 
-     
+        
+
+        private void neutralbtn()
+        {
+            foreach (Button btn in Controls.OfType<Button>())
+            {
+                if (btn.BackColor == Color.DarkGray)
+                {
+                    btn.BackColor = Color.LightGray;
+                }
+            }
+        }
+
         public void genererGeneral()
         {
         }
@@ -168,7 +179,7 @@ namespace Statfile
             csv.Streets = streetsForm1.Streets;
             csv.Entrances = cityGatesForm1.Entrances;
             csv.Schools = schoolsForm1.Schools;
-            csv.Busstation = busStationsForm1.BusStations;
+          //  csv.Busstation = busStationsForm1.BusStations;
             csv.writeXML(path);
         }
 
@@ -202,7 +213,6 @@ namespace Statfile
             busLinesbtn.Enabled = false;
         }
 
-    
 
         private void populationform1_Load(object sender, EventArgs e)
         {
@@ -218,18 +228,14 @@ namespace Statfile
         {
 
         }
-        // BOUTONS
-        private void neutralbtn()
-        {
-            foreach (Button btn in Controls.OfType<Button>())
-            {
-                if (btn.BackColor == Color.DarkGray)
-                {
-                    btn.BackColor = Color.LightGray;
-                }
-            }
-        }
 
+        private void workbtn_Click(object sender, EventArgs e)
+        {
+            neutralbtn();
+            workbtn.BackColor = Color.DarkGray;
+            workHours1.BringToFront();
+        }
+        // BOUTONS
         private void paramsbtn_Click(object sender, EventArgs e)
         {
             neutralbtn();
@@ -284,6 +290,14 @@ namespace Statfile
             busLinesbtn.BackColor = Color.DarkGray;
         }
 
+        private void busLinesForm1_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

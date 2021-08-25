@@ -34,7 +34,11 @@ namespace Statfile.View
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.streetDatagridView = new System.Windows.Forms.DataGridView();
+            this.edgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.populationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workPositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.streetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -49,17 +53,13 @@ namespace Statfile.View
             this.addline = new System.Windows.Forms.Button();
             this.precrue = new System.Windows.Forms.Button();
             this.nextrue = new System.Windows.Forms.Button();
-            this.edgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.populationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workPositionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.streetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streetDatagridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.streetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -101,12 +101,37 @@ namespace Statfile.View
             this.streetDatagridView.TabIndex = 91;
             this.streetDatagridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.streetDatagridView_CellContentClick);
             // 
+            // edgeDataGridViewTextBoxColumn
+            // 
+            this.edgeDataGridViewTextBoxColumn.DataPropertyName = "Edge";
+            this.edgeDataGridViewTextBoxColumn.HeaderText = "Edge";
+            this.edgeDataGridViewTextBoxColumn.Name = "edgeDataGridViewTextBoxColumn";
+            this.edgeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // populationDataGridViewTextBoxColumn
+            // 
+            this.populationDataGridViewTextBoxColumn.DataPropertyName = "Population";
+            this.populationDataGridViewTextBoxColumn.HeaderText = "Population";
+            this.populationDataGridViewTextBoxColumn.Name = "populationDataGridViewTextBoxColumn";
+            this.populationDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // workPositionDataGridViewTextBoxColumn
+            // 
+            this.workPositionDataGridViewTextBoxColumn.DataPropertyName = "WorkPosition";
+            this.workPositionDataGridViewTextBoxColumn.HeaderText = "WorkPosition";
+            this.workPositionDataGridViewTextBoxColumn.Name = "workPositionDataGridViewTextBoxColumn";
+            this.workPositionDataGridViewTextBoxColumn.Width = 150;
+            // 
             // Supprimer
             // 
             this.Supprimer.HeaderText = "Supprimer";
             this.Supprimer.Name = "Supprimer";
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseColumnTextForButtonValue = true;
+            // 
+            // streetBindingSource
+            // 
+            this.streetBindingSource.DataSource = typeof(Statfile.Model.Street);
             // 
             // panel1
             // 
@@ -168,6 +193,7 @@ namespace Statfile.View
             this.workpos.Size = new System.Drawing.Size(136, 24);
             this.workpos.TabIndex = 103;
             this.workpos.TextChanged += new System.EventHandler(this.peopleNbr_TextChanged);
+            this.workpos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.workpos_KeyPress);
             // 
             // pop
             // 
@@ -176,6 +202,7 @@ namespace Statfile.View
             this.pop.Name = "pop";
             this.pop.Size = new System.Drawing.Size(134, 24);
             this.pop.TabIndex = 102;
+            this.pop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pop_KeyPress);
             // 
             // edge
             // 
@@ -256,31 +283,6 @@ namespace Statfile.View
             this.nextrue.UseVisualStyleBackColor = true;
             this.nextrue.Click += new System.EventHandler(this.nextrue_Click);
             // 
-            // edgeDataGridViewTextBoxColumn
-            // 
-            this.edgeDataGridViewTextBoxColumn.DataPropertyName = "Edge";
-            this.edgeDataGridViewTextBoxColumn.HeaderText = "Edge";
-            this.edgeDataGridViewTextBoxColumn.Name = "edgeDataGridViewTextBoxColumn";
-            this.edgeDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // populationDataGridViewTextBoxColumn
-            // 
-            this.populationDataGridViewTextBoxColumn.DataPropertyName = "Population";
-            this.populationDataGridViewTextBoxColumn.HeaderText = "Population";
-            this.populationDataGridViewTextBoxColumn.Name = "populationDataGridViewTextBoxColumn";
-            this.populationDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // workPositionDataGridViewTextBoxColumn
-            // 
-            this.workPositionDataGridViewTextBoxColumn.DataPropertyName = "WorkPosition";
-            this.workPositionDataGridViewTextBoxColumn.HeaderText = "WorkPosition";
-            this.workPositionDataGridViewTextBoxColumn.Name = "workPositionDataGridViewTextBoxColumn";
-            this.workPositionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // streetBindingSource
-            // 
-            this.streetBindingSource.DataSource = typeof(Statfile.Model.Street);
-            // 
             // streetsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,12 +298,12 @@ namespace Statfile.View
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.streetDatagridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.streetBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.streetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

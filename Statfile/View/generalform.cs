@@ -23,25 +23,25 @@ namespace Statfile.View
         public generalform()
         {
             InitializeComponent();
-
+      
         }
 
         private void nextgen_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("nextgen_Click");
-            if (String.IsNullOrEmpty(inhabitants.Text)
-                 || String.IsNullOrEmpty(households.Text)
-                 || String.IsNullOrEmpty(childrenAgeLimit.Text)
-                 || String.IsNullOrEmpty(retirementAgeLimit.Text)
-                 || String.IsNullOrEmpty(carRate.Text)
-                 || String.IsNullOrEmpty(unemploymentRate.Text)
-                 || String.IsNullOrEmpty(footDistanceLimit.Text)
-                 || String.IsNullOrEmpty(incomingTraffic.Text)
-                 || String.IsNullOrEmpty(outgoingTraffic.Text))
+           if (String.IsNullOrEmpty(inhabitants.Text)
+                || String.IsNullOrEmpty(households.Text)
+                || String.IsNullOrEmpty(childrenAgeLimit.Text)
+                || String.IsNullOrEmpty(retirementAgeLimit.Text)
+                || String.IsNullOrEmpty(carRate.Text)
+                || String.IsNullOrEmpty(unemploymentRate.Text)
+                || String.IsNullOrEmpty(footDistanceLimit.Text)
+                || String.IsNullOrEmpty(incomingTraffic.Text)
+                || String.IsNullOrEmpty(outgoingTraffic.Text))
             {
 
                 // ajouter control de valeurs 
-                // habitantserror.SetError(inhabitants, "doit être renseigné");
+               // habitantserror.SetError(inhabitants, "doit être renseigné");
                 MessageBox.Show("Tous les champs doivent être renseignés");
             }
             else
@@ -72,7 +72,7 @@ namespace Statfile.View
                     enablenext?.Invoke(sender, e);
 
                 }
-                // enablenext?.Invoke(sender, e);
+               // enablenext?.Invoke(sender, e);
             }
         }
 

@@ -40,6 +40,7 @@ namespace Statfile
             this.generalbtn = new System.Windows.Forms.Button();
             this.paramsbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.busLinesForm1 = new Statfile.View.BusLinesForm();
             this.busStationsForm1 = new Statfile.View.BusStationsForm();
             this.schoolsForm1 = new Statfile.View.schoolsForm();
             this.cityGatesForm1 = new Statfile.View.cityGatesForm();
@@ -56,8 +57,6 @@ namespace Statfile
             this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sUMOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consignesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.busLineForm1 = new Statfile.View.BusLineForm();
-            this.busLineForm2 = new Statfile.View.BusLineForm();
             ((System.ComponentModel.ISupportInitialize)(this.habitantserror)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -76,6 +75,7 @@ namespace Statfile
             this.ruebtn.TabIndex = 6;
             this.ruebtn.Text = "Rues";
             this.ruebtn.UseVisualStyleBackColor = true;
+            this.ruebtn.Click += new System.EventHandler(this.ruebtn_Click);
             // 
             // citygates
             // 
@@ -86,6 +86,7 @@ namespace Statfile
             this.citygates.TabIndex = 7;
             this.citygates.Text = "CityGates";
             this.citygates.UseVisualStyleBackColor = true;
+            this.citygates.Click += new System.EventHandler(this.citygates_Click);
             // 
             // schoolbtn
             // 
@@ -96,6 +97,7 @@ namespace Statfile
             this.schoolbtn.TabIndex = 8;
             this.schoolbtn.Text = "Schools";
             this.schoolbtn.UseVisualStyleBackColor = true;
+            this.schoolbtn.Click += new System.EventHandler(this.schoolbtn_Click);
             // 
             // busstationbtn
             // 
@@ -106,6 +108,7 @@ namespace Statfile
             this.busstationbtn.TabIndex = 9;
             this.busstationbtn.Text = "Bus Stations";
             this.busstationbtn.UseVisualStyleBackColor = true;
+            this.busstationbtn.Click += new System.EventHandler(this.busstationbtn_Click);
             // 
             // busLinesbtn
             // 
@@ -116,6 +119,7 @@ namespace Statfile
             this.busLinesbtn.TabIndex = 10;
             this.busLinesbtn.Text = "Buslines";
             this.busLinesbtn.UseVisualStyleBackColor = true;
+            this.busLinesbtn.Click += new System.EventHandler(this.busLinesbtn_Click);
             // 
             // notifyIcon1
             // 
@@ -145,7 +149,7 @@ namespace Statfile
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.busLineForm2);
+            this.panel1.Controls.Add(this.busLinesForm1);
             this.panel1.Controls.Add(this.busStationsForm1);
             this.panel1.Controls.Add(this.schoolsForm1);
             this.panel1.Controls.Add(this.cityGatesForm1);
@@ -160,9 +164,23 @@ namespace Statfile
             this.panel1.Size = new System.Drawing.Size(1233, 511);
             this.panel1.TabIndex = 2;
             // 
+            // busLinesForm1
+            // 
+            this.busLinesForm1.BuslineId = 1;
+            this.busLinesForm1.Buslines = null;
+            this.busLinesForm1.BusRevStations = null;
+            this.busLinesForm1.BusStations = null;
+            this.busLinesForm1.Freq = null;
+            this.busLinesForm1.Location = new System.Drawing.Point(6, 3);
+            this.busLinesForm1.Name = "busLinesForm1";
+            this.busLinesForm1.Size = new System.Drawing.Size(1233, 511);
+            this.busLinesForm1.TabIndex = 9;
+            this.busLinesForm1.Load += new System.EventHandler(this.busLinesForm1_Load);
+            // 
             // busStationsForm1
             // 
             this.busStationsForm1.BusstationId = 1;
+            this.busStationsForm1.BusStations = null;
             this.busStationsForm1.Location = new System.Drawing.Point(6, 0);
             this.busStationsForm1.Name = "busStationsForm1";
             this.busStationsForm1.Size = new System.Drawing.Size(1233, 511);
@@ -234,7 +252,7 @@ namespace Statfile
             this.finalbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finalbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finalbtn.ForeColor = System.Drawing.Color.Black;
-            this.finalbtn.Location = new System.Drawing.Point(980, 39);
+            this.finalbtn.Location = new System.Drawing.Point(971, 39);
             this.finalbtn.Margin = new System.Windows.Forms.Padding(0);
             this.finalbtn.Name = "finalbtn";
             this.finalbtn.Size = new System.Drawing.Size(110, 35);
@@ -260,6 +278,7 @@ namespace Statfile
             this.workbtn.TabIndex = 5;
             this.workbtn.Text = "Heures de travail";
             this.workbtn.UseVisualStyleBackColor = true;
+            this.workbtn.Click += new System.EventHandler(this.workbtn_Click);
             // 
             // menuStrip1
             // 
@@ -270,6 +289,7 @@ namespace Statfile
             this.menuStrip1.Size = new System.Drawing.Size(1243, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // aideToolStripMenuItem
             // 
@@ -293,26 +313,12 @@ namespace Statfile
             this.consignesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.consignesToolStripMenuItem.Text = "Consignes";
             // 
-            // busLineForm1
-            // 
-            this.busLineForm1.BusId = 1;
-            this.busLineForm1.Location = new System.Drawing.Point(0, 0);
-            this.busLineForm1.Name = "busLineForm1";
-            this.busLineForm1.Size = new System.Drawing.Size(1233, 511);
-            this.busLineForm1.TabIndex = 0;
-            // 
-            // busLineForm2
-            // 
-            this.busLineForm2.BusId = 1;
-            this.busLineForm2.Location = new System.Drawing.Point(6, 3);
-            this.busLineForm2.Name = "busLineForm2";
-            this.busLineForm2.Size = new System.Drawing.Size(1233, 511);
-            this.busLineForm2.TabIndex = 9;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1243, 588);
             this.Controls.Add(this.busLinesbtn);
             this.Controls.Add(this.busstationbtn);
@@ -368,8 +374,7 @@ namespace Statfile
         private View.cityGatesForm cityGatesForm1;
         private View.schoolsForm schoolsForm1;
         private View.BusStationsForm busStationsForm1;
-        private View.BusLineForm busLineForm1;
-        private View.BusLineForm busLineForm2;
+        private View.BusLinesForm busLinesForm1;
     }
 }
 
